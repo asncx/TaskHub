@@ -1,0 +1,10 @@
+body {
+    background-color: #eee;
+}
+
+.high-priority {
+    background-color: #ffdddd;
+}
+.high-priority td {
+    color: red;
+}
