@@ -1,14 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
-
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <p class="text-muted mb-1">Profile of</p>
-                        <h5 class="my-3">{{ $selected_user->name }}</h5>                        
+                        <h5 class="my-3">{{ $selected_user->name }}</h5>
                         <div class="d-flex justify-content-center mb-2">
                             <form action="{{ route('users.update', $selected_user->id) }}">
                                 <button type="submit" class="btn btn-primary">Update</button>
@@ -57,17 +56,25 @@
                                 <p class="mb-0">Permission</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">@if ($selected_user->permission === null)
-                                    User
-                                @else
-                                    {{ $selected_user->permission }}
-                                @endif</p>
+                                <p class="text-muted mb-0">
+                                    @if ($selected_user->permission === null)
+                                        User
+                                    @else
+                                        {{ $selected_user->permission }}
+                                    @endif
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="col-lg-12">
+                <div class="card mb-4">
+                    <livewire:task-list-view :userId="$selected_user->id" />
+                </div>
             </div>
         </div>
+
+
     </div>
 @endsection
